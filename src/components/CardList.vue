@@ -1,9 +1,12 @@
 <template>
-    <p>Home Page</p>
+
 </template>
 
 <script>
 export default {
-  name: "HomePage"
+  name: "CardList"
 };
 </script>
+
+<style scoped lang="scss">
+</style>
