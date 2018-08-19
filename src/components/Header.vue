@@ -1,13 +1,23 @@
 <template>
   <header>
     <img src="../assets/news-app.png" alt="logo" />
-    <time>1234</time>
+    <time>{{date.toLocaleString('ru', options)}}</time>
   </header>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      date: new Date(),
+      options: {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }
+    };
+  }
 };
 </script>
 
