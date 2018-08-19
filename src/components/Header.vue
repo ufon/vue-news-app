@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src="../assets/logo.png" alt="logo" />
+    <img src="../assets/news-app.png" alt="logo" />
     <time>1234</time>
   </header>
 </template>

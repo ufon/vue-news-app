@@ -1,25 +1,34 @@
 <template>
-    <div class="styles.card">
-        <div class="styles.card__image">
+    <div class="card">
+        <div class="card__image">
             <!-- <LazyImage srcLoaded={article.urlToImage ? article.urlToImage : ''} /> -->
         </div>
         <div class="card__content">
             <!-- <LikeButton likeEvent={()=> likeEvent(likeCount)} dislikeEvent={() => dislikeEvent(likeCount)} likeCount={likeCount || 0} liked={localStorage.getItem(uuid) || false} /> -->
             <h1 class="card__title">
-                <a target="_blank" href={article.url}> {article.title} </a>
+                <a target="_blank" :href="article.url"> {{article.title}} </a>
             </h1>
-            <p class="card__description">{article.description}</p>
+            <p class="card__description">{{article.description}}</p>
         </div>
         <div class="card__footer">
-            <span class="card__time">{momentFormat(article.publishedAt)}</span>
-            <span class="card__count">{viewCount || 0} просмотров</span>
+            <span class="card__time">{{article.publishedAt}}</span>
+            <span class="card__count">{{viewCount || 0}} просмотров</span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: "Card"
+  name: "Card",
+  props: {
+    article: Object,
+    uuid: String,
+    likeCount: Number,
+    viewCount: Number,
+    likeEvent: Function,
+    dislikeEvent: Function,
+    viewEvent: Function
+  }
 };
 </script>
 

@@ -1,23 +1,24 @@
-import { ApiService } from "./api.service";
+import ApiService from "./api.service";
 
-import { PAGE_SIZE } from "../constants/article.constants";
+import { PAGE_SIZE, COUNTRY } from "@/core/constants/article.constants";
 
 export const ArticlesService = {
-  query(type, params) {
-    return ApiService.query("articles" + (type === "feed" ? "/feed" : ""), {
-      params: params
+  topHeadlines(page = 1) {
+    return ApiService.query("top-headlines", {
+      params: {
+        country: COUNTRY,
+        pageSize: PAGE_SIZE,
+        page: page
+      }
     });
   },
-  get(slug) {
-    return ApiService.get("articles", slug);
-  },
-  create(params) {
-    return ApiService.post("articles", { article: params });
-  },
-  update(slug, params) {
-    return ApiService.update("articles", slug, { article: params });
-  },
-  destroy(slug) {
-    return ApiService.delete(`articles/${slug}`);
+  fetchByQuery(query, page = 1) {
+    return ApiService.query("everything", {
+      params: {
+        q: query,
+        pageSize: PAGE_SIZE,
+        page: page
+      }
+    });
   }
 };

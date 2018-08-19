@@ -9,12 +9,13 @@ export default new Router({
   routes: [
     {
       path: "/",
+      name: "home",
       component: () => import("@/views/Home")
     },
     {
       path: "/search/:query",
       name: "search",
-      component: () => import("@/views/Search")
+      component: () => import("@/views/Home")
     }
   ]
 });

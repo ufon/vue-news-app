@@ -1,9 +1,9 @@
-// module.exports = {
-//   configureWebpack: {
-//     resolve: {
-//       alias: {
-//         "@": require("path").resolve(__dirname, "src")
-//       }
-//     }
-//   }
-// };
+module.exports = {
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": require("path").resolve(__dirname, "src")
+      }
+    }
+  }
+};
